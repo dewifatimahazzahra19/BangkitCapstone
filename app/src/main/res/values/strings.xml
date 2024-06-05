@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">AquaMate</string>
+    <string name="masuk">Masuk</string>
+    <string name="message_login">Masukkan Email dan Kata Sandi anda</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="lupa_kata_sandi">Lupa Kata Sandi?</string>
+    <string name="belum_punya_akun">Belum punya akun?</string>
+    <string name="daftar_disini">Daftar disini</string>
+    <string name="forgot_password">Lupa Kata Sandi\n</string>
+</resources>
