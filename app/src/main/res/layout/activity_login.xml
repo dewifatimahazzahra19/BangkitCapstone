@@ -67,11 +67,18 @@
         app:layout_constraintTop_toBottomOf="@+id/messageTextView"
         app:startIconDrawable="@drawable/ic_baseline_email_24">
 
-        <com.google.android.material.textfield.TextInputEditText
+        <com.capstone.aquamate.customview.EmailCustomView
+            android:id="@+id/emailEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/email"
-            android:paddingStart="48dp" />
+            android:ems="10"
+            android:hint="Email"
+            android:paddingStart="48dp"
+            android:paddingLeft="16dp"
+            android:inputType="textEmailAddress"
+            app:errorEnabled="true"
+            app:errorTextAppearance="@style/TextAppearance.AppCompat.Caption"
+            tools:ignore="SpeakableTextPresentCheck" />
 
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -101,11 +108,20 @@
         app:layout_constraintTop_toBottomOf="@+id/passwordTextView"
         app:startIconDrawable="@drawable/ic_baseline_lock_24">
 
-        <com.google.android.material.textfield.TextInputEditText
+        <com.capstone.aquamate.customview.PasswordCustomView
+            android:id="@+id/passwordEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/password"
-            android:paddingStart="48dp" />
+            android:ems="10"
+            android:hint="Password"
+            android:paddingStart="48dp"
+            android:paddingLeft="16dp"
+            android:inputType="textPassword"
+            app:errorEnabled="true"
+            app:errorTextAppearance="@style/TextAppearance.AppCompat.Caption"
+            app:layout_constraintTop_toBottomOf="@id/passwordTextView"
+            tools:ignore="SpeakableTextPresentCheck" />
+
 
 
     </com.google.android.material.textfield.TextInputLayout>
