@@ -8,6 +8,10 @@ import android.os.Bundle
 import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.activity.viewModels
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.capstone.aquamate.adapter.RecomendationAdapter
+import com.capstone.aquamate.api.recomendation
 import com.capstone.aquamate.databinding.ActivityMainBinding
 import com.capstone.aquamate.factory.MainViewModelFactory
 import com.capstone.aquamate.viewmodel.MainViewModel
@@ -15,12 +19,21 @@ import com.capstone.aquamate.viewmodel.MainViewModel
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+    private lateinit var rvRecomendation : RecyclerView
+    private lateinit var recomendationAdapter: RecomendationAdapter
+    private val list = ArrayList<recomendation>()
     private val mainViewModel: MainViewModel by viewModels { MainViewModelFactory(application) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        rvRecomendation = findViewById(R.id.rv_recomndation)
+        rvRecomendation.setHasFixedSize(true)
+
+        list.addAll(getListRecomendation())
+        showRecyclerList()
 
         // Check if user is logged in
         if (!mainViewModel.isLoggedIn()) {
@@ -33,7 +46,7 @@ class MainActivity : AppCompatActivity() {
         binding.fishPrediction.setImageBitmap(resizeBitmap(R.drawable.fish_scanning, 80, 80))
         binding.fishDictionary.setImageBitmap(resizeBitmap(R.drawable.fish_dictionary, 80, 80))
         binding.socialFish.setImageBitmap(resizeBitmap(R.drawable.social_fish, 80, 80))
-        binding.recommendationImage.setImageBitmap(resizeBitmap(R.drawable.gurame, 100, 100))
+       // binding.rvRecomndation.setImageBitmap(resizeBitmap(R.drawable.gurame, 100, 100))
 
         // Set onClickListeners
         binding.fishPrediction.setOnClickListener {
@@ -94,4 +107,33 @@ class MainActivity : AppCompatActivity() {
         }
         return inSampleSize
     }
+    private fun getListRecomendation(): ArrayList<recomendation> {
+        val dataName = resources.getStringArray(R.array.data_name)
+        val dataDescription = resources.getStringArray(R.array.data_description)
+        val dataPhoto = resources.obtainTypedArray(R.array.data_photo)
+        val listRecomendation = ArrayList<recomendation>()
+        for (i in dataName.indices) {
+            val recomendation = recomendation(dataName[i], dataDescription[i], dataPhoto.getResourceId(i, -1))
+            listRecomendation.add(recomendation)
+        }
+        return listRecomendation
+    }
+
+    private fun showRecyclerList() {
+        rvRecomendation.layoutManager = LinearLayoutManager(this)
+        recomendationAdapter = RecomendationAdapter(list)
+        rvRecomendation.adapter = recomendationAdapter
+        recomendationAdapter.setOnItemClickCallback(object : RecomendationAdapter.OnItemClickCallback {
+            override fun onItemClicked(data: recomendation) {
+                showSelectedFilm(data)
+            }
+        })
+    }
+
+    private fun showSelectedFilm(recomendation: recomendation) {
+        val intentDetail = Intent(this, DetailRecomendationActivity::class.java)
+        intentDetail.putExtra("key_film", recomendation)
+        startActivity(intentDetail)
+    }
 }
+

@@ -1,11 +1,11 @@
-package com.capstone.aquamate.pregressrequest
+package com.capstone.aquamate.progressrequest
 
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.RequestBody
 import okio.BufferedSink
 import java.io.File
 
-class ProgressRequestBody(
+class ProgressRequestBody (
     private val file: File,
     private val progressListener: (progress: Int) -> Unit
 ) : RequestBody() {
