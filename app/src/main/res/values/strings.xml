@@ -13,8 +13,8 @@
     <string name="forgot_password">Lupa Kata Sandi\n</string>
     <string name="daftar">Daftar</string>
     <string name="username">Username</string>
-    <string name="galeri">Ambil Gambar</string>
-    <string name="camera">Galeri</string>
+    <string name="galeri">Galeri</string>
+    <string name="camera">Camera</string>
     <string name="analisa">Analisa</string>
     <string name="result">Hasil Analisis</string>
     <string name="searchbar_hint">Masukkan Jenis Ikan yang ingin anda cari</string>
@@ -26,5 +26,29 @@
     <string name="buatakun">Buat Akun</string>
     <string name="bergabung">Bergabung</string>
     <string name="gambar">gambar</string>
+    <string name="search">Cari</string>
+    <string name="refresh">Refresh</string>
+    <string name="NameFish">Name Fish</string>
+    <string name="description">Description</string>
+    <string-array name="data_name">
+        <item>Ikan Nila</item>
+        <item>Ikan Gurame</item>
+        <item>Ikan Patin</item>
+    </string-array>
+    <string-array name="data_description">
+        <item>Ikan nila adalah ikan air tawar yang populer di Indonesia, terutama sebagai bahan makanan. Ikan ini memiliki bentuk tubuh yang pipih, sirip yang lebar, dan warna yang dominan biru atau ungu. Ikan nila berasal dari Afrika, dan telah dibawa ke Indonesia sejak tahun 1969.
+            Ikan nila adalah ikan yang memiliki nilai ekonomi tinggi, karena memiliki daging yang lezat, gurih, dan empuk. Ikan nila juga memiliki kandungan protein, kalsium, fosfor, dan zat besi yang tinggi. Ikan nila juga mudah dibudidayakan, baik di kolam, tambak, atau keramba. Ikan nila bisa dipanen dalam waktu 4-6 bulan, dengan berat mencapai 1 kg atau lebih. </item>
+        <item>Ikan gurame adalah ikan air tawar yang populer di Indonesia, terutama sebagai bahan makanan. Ikan ini memiliki bentuk tubuh yang pipih, sirip yang besar, dan warna yang bervariasi, seperti putih, abu-abu, atau coklat. Ikan gurame berasal dari Asia Tenggara, terutama Indonesia, Malaysia, dan Thailand.
+            Ikan gurame adalah ikan yang memiliki daging yang lezat, gurih, dan renyah. Ikan gurame juga memiliki kandungan protein, kalsium, fosfor, dan vitamin B yang tinggi. Ikan gurame juga bisa diolah menjadi berbagai masakan, seperti gurame goreng, gurame bakar, gurame asam manis, atau gurame pesmol. Ikan gurame juga bisa dibudidayakan, baik di kolam, tambak, atau keramba. </item>
+        <item>Ikan patin adalah ikan air tawar yang populer di Indonesia, terutama sebagai bahan makanan. Ikan ini memiliki bentuk tubuh yang panjang, sirip yang kecil, dan warna yang putih atau abu-abu. Ikan patin juga memiliki kulit yang licin, tanpa sisik. Ikan patin berasal dari Asia Tenggara, terutama Indonesia, Malaysia, dan Vietnam.
+            Ikan patin adalah ikan yang memiliki daging yang lezat, gurih, dan berlemak. Ikan patin juga memiliki kandungan protein, lemak, vitamin, dan mineral yang tinggi. Ikan patin juga bisa diolah menjadi berbagai masakan, seperti patin goreng, patin bakar, patin asam pedas, atau patin tempoyak. Ikan patin juga bisa dibudidayakan, baik di kolam, tambak, atau keramba. </item>
+    </string-array>
+
+    <integer-array name="data_photo">
+        <item>@drawable/ikan_nila</item>
+        <item>@drawable/ikan_gurame</item>
+        <item>@drawable/ikan_patin</item>
+
+    </integer-array>
 
 </resources>

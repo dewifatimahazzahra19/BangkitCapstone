@@ -18,15 +18,10 @@ interface ApiService {
     ): Call<PredictFishResponse>
 
     @GET("aquamate/dictionary")
-    suspend fun getDictionaryFish(
-        @Header("Authorization") token: String,
-        @Query("page") page: Int? = null,
-        @Query("size") size: Int? = null
-    ): Call<DictionaryFishResponse>
+    suspend fun getDictionaryFish(): DictionaryFishResponse
 
-    @GET("dictionary/{id}")
+    @GET("aquamate/dictionary/{id}")
     suspend fun getDictionaryDetail(
-        @Path("id") dictionaryId: String,
-        @Header("Authorization") token: String
-    ): DetailDictionaryResponse
+        @Path("id") dictionaryId: String
+    ): DetailDictionaryResponseApi
 }

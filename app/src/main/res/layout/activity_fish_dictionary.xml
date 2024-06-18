@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,35 +8,19 @@
     android:background="@color/color_bg"
     tools:context=".FishDictionary">
 
-
-  <com.google.android.material.search.SearchBar
-      android:layout_width="0dp"
-      android:layout_height="wrap_content"
-      android:hint="@string/searchbar_hint"
-      android:layout_marginHorizontal="16dp"
-      android:layout_marginTop="16dp"
-      app:layout_constraintStart_toStartOf="parent"
+  <androidx.appcompat.widget.Toolbar
+      android:id="@+id/toolbar"
+      android:layout_width="match_parent"
+      android:layout_height="?attr/actionBarSize"
+      android:background="@color/color_button"
+      android:elevation="4dp"
+      app:titleTextColor="@color/white"
       app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintEnd_toEndOf="parent"
-      android:id="@+id/searchBar">
-  </com.google.android.material.search.SearchBar>
-
-  <com.google.android.material.search.SearchView
-      android:id="@+id/searchView"
-      android:layout_width="0dp"
-      android:layout_height="0dp"
-      android:hint="@string/searchbar_hint"
-      app:layout_anchor="@id/searchBar"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.0"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintVertical_bias="0.0">
-
-  </com.google.android.material.search.SearchView>
+      app:layout_constraintEnd_toEndOf="parent" />
 
   <ProgressBar
+      android:id="@+id/progressBar"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       style="?android:attr/progressBarStyle"
@@ -43,24 +28,32 @@
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent"
-      tools:visibility="visible"
-      android:id="@+id/progressBar"
-      />
+      app:layout_constraintTop_toBottomOf="@id/toolbar"
+      tools:visibility="visible" />
+
+  <Button
+      android:id="@+id/btnRefresh"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="@string/refresh"
+      android:visibility="gone"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/toolbar" />
 
   <androidx.recyclerview.widget.RecyclerView
+      android:id="@+id/rvUser"
       android:layout_width="0dp"
       android:layout_height="0dp"
       android:layout_marginStart="16dp"
       android:layout_marginEnd="16dp"
       android:overScrollMode="never"
       android:scrollbarSize="0dp"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintTop_toBottomOf="@id/searchBar"
-      android:id="@+id/rvUser"
-      tools:listitem="@layout/activity_item_fish_dictionary"
-      />
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/toolbar"
+      tools:listitem="@layout/activity_item_fish_dictionary" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

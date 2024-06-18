@@ -13,7 +13,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import com.capstone.aquamate.databinding.ActivityDeteksiPenyakitIkanBinding
 import com.capstone.aquamate.factory.PredictViewModelFactory
-import com.capstone.aquamate.pregressrequest.ProgressRequestBody
+import com.capstone.aquamate.progressrequest.ProgressRequestBody
 import com.capstone.aquamate.repository.PredictRepository
 import com.capstone.aquamate.viewmodel.PredictViewModel
 import com.google.android.material.progressindicator.LinearProgressIndicator
@@ -115,11 +115,10 @@ class DeteksiPenyakitIkanActivity : AppCompatActivity() {
                 predictViewModel.uploadImage(body).observe(this@DeteksiPenyakitIkanActivity, Observer { response ->
                     progressIndicator.visibility = LinearProgressIndicator.GONE
                     response?.let {
-                        Log.d(TAG, "Response: ${it.data?.result}")
-                        val resultText = "Result: ${it.data?.result}\nExplanation: ${it.data?.explanation}"
+                        Log.d(TAG, "Response: ${it.result}")
+                        val resultText = "Result: ${it.result}\nExplanation: ${it.explanation}"
                         binding.resultDeteksiPenyakitTextView.text = resultText
-                        navigateToResultActivity(it.data?.result, it.data?.explanation, uri.toString())
-                    } ?: run {
+                        navigateToResultActivity(it.result, it.explanation, uri.toString())                    } ?: run {
                         showToast("Failed to get prediction result")
                     }
                 })

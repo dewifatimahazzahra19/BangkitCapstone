@@ -3,42 +3,20 @@ package com.capstone.aquamate.api
 import com.google.gson.annotations.SerializedName
 
 data class DictionaryFishResponse(
+	@SerializedName("status") val status: Boolean,
+	@SerializedName("data") val data: List<DataItemFishDictionary>
+)
 
-	@field:SerializedName("data")
-	val data: DataItemFishDictionary? = null,
-
-	@field:SerializedName("status")
-	val status: Boolean? = null
+data class DataItemFishDictionary(
+	@SerializedName("id") val id: String,
+	@SerializedName("fishName") val fishName: String,
+	@SerializedName("fishDesc") val fishDesc: String,
+	@SerializedName("fishImage") val fishImage: String,
+	@SerializedName("fishLatinName") val fishLatinName: String,
+	@SerializedName("createdAt") val createdAt: CreatedAt
 )
 
 data class CreatedAt(
-
-	@field:SerializedName("_nanoseconds")
-	val nanoseconds: Int? = null,
-
-	@field:SerializedName("_seconds")
-	val seconds: Int? = null
+	@SerializedName("_seconds") val seconds: Long,
+	@SerializedName("_nanoseconds") val nanoseconds: Long
 )
-data class DataItemFishDictionary(
-
-	@field:SerializedName("createdAt")
-	val createdAt: CreatedAt? = null,
-
-	@field:SerializedName("fishName")
-	val fishName: String? = null,
-
-	@field:SerializedName("fishDesc")
-	val fishDesc: String? = null,
-
-	@field:SerializedName("fishImage")
-	val fishImage: String? = null,
-
-	@field:SerializedName("id")
-	val id: String? = null,
-
-	@field:SerializedName("fishLatinName")
-	val fishLatinName: String? = null
-)
-
-
-

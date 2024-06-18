@@ -1,12 +1,12 @@
 package com.capstone.aquamate.adapter
 
-
+import android.content.Intent
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.capstone.aquamate.DetailFishDictionary
 import com.capstone.aquamate.api.DataItemFishDictionary
 import com.capstone.aquamate.R
 import com.capstone.aquamate.databinding.ActivityItemFishDictionaryBinding
@@ -20,8 +20,7 @@ class FishDictionaryAdapter : ListAdapter<DataItemFishDictionary, FishDictionary
     }
 
     override fun onBindViewHolder(holder: FishDictionaryViewHolder, position: Int) {
-        val currentItem = getItem(position)
-        holder.bind(currentItem)
+        holder.bind(getItem(position))
     }
 
     inner class FishDictionaryViewHolder(private val binding: ActivityItemFishDictionaryBinding) : RecyclerView.ViewHolder(binding.root) {
@@ -31,10 +30,19 @@ class FishDictionaryAdapter : ListAdapter<DataItemFishDictionary, FishDictionary
                 tvFishName.text = fishItem.fishName
                 tvFishLatinName.text = fishItem.fishLatinName
                 tvFishDescription.text = fishItem.fishDesc
-                Picasso.get().load(fishItem.fishImage).into(imageFish)
+
+                if (fishItem.fishImage.isNotBlank()) {
+                    Picasso.get().load(fishItem.fishImage).into(imageFish)
+                } else {
+                    Picasso.get().load(R.drawable.fish_dictionary).into(imageFish)
+                }
 
                 root.setOnClickListener {
-                    // Implement item click listener if needed
+                    val context = root.context
+                    val intent = Intent(context, DetailFishDictionary::class.java).apply {
+                        putExtra("dictionaryId", fishItem.id)
+                    }
+                    context.startActivity(intent)
                 }
             }
         }
