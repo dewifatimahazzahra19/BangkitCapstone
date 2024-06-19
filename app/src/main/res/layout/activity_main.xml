@@ -16,8 +16,8 @@
             android:layout_height="240dp"
             android:background="@drawable/bg"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <LinearLayout
             android:id="@+id/header"
@@ -57,7 +57,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:padding="16dp"
-            android:text="Together for a Smarter Fisheries Future"
+            android:text="Diagnosa Digital, Solusi Real"
             android:textColor="@android:color/white"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -69,11 +69,10 @@
             android:layout_width="0dp"
             android:layout_height="187dp"
             android:layout_marginTop="12dp"
-            android:layout_marginRight="15dp"
-            android:layout_marginLeft="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginStart="15dp"
             android:src="@drawable/poster_aquamate"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/slogan" />
 
@@ -81,10 +80,10 @@
             android:id="@+id/item_grid"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="16dp"
             android:gravity="center"
             android:orientation="horizontal"
-            android:padding="16dp"
+            android:padding="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/gambar">
@@ -95,12 +94,12 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:padding="8dp">
+                android:padding="4dp">
 
                 <ImageView
                     android:id="@+id/fish_prediction"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
                     android:src="@drawable/fish_scanning"
                     android:scaleType="centerInside" />
 
@@ -109,7 +108,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="Fish Prediction"
-                    android:textSize="12sp" />
+                    android:textSize="14sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -118,12 +117,12 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:padding="8dp">
+                android:padding="4dp">
 
                 <ImageView
                     android:id="@+id/fish_dictionary"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
                     android:src="@drawable/fish_dictionary"
                     android:scaleType="centerInside" />
 
@@ -132,8 +131,20 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="Fish Dictionary"
-                    android:textSize="12sp" />
+                    android:textSize="14sp" />
             </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/item_grid">
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -141,12 +152,12 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:padding="8dp">
+                android:padding="4dp">
 
                 <ImageView
                     android:id="@+id/social_fish"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
                     android:src="@drawable/social_fish"
                     android:scaleType="centerInside" />
 
@@ -155,7 +166,30 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="Social Fish"
-                    android:textSize="12sp" />
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="4dp">
+
+                <ImageView
+                    android:id="@+id/FishMaps"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/maps"
+                    android:scaleType="centerInside" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Fish Maps"
+                    android:textSize="14sp" />
             </LinearLayout>
         </LinearLayout>
 
@@ -163,10 +197,11 @@
             android:id="@+id/recommendation_section"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="160dp"
             android:orientation="vertical"
             android:padding="16dp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/item_grid">
 
@@ -189,4 +224,3 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>
-
